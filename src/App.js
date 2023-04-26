@@ -12,8 +12,38 @@ function App() {
     let arr = [];
     setInputType(type);
 
-    if (type === "prima") {
-      // map and use remainder to return prime values
+    // 4. Generate segitiga
+    if (type === "segitiga") {
+      // Convert value ke string dan split jadi array
+      let i = value?.toString().split('').map(Number);
+      let str = "0";
+
+      // Increment value length
+      for (let len = 0; len <= value.length; len++) {
+        i.map((ii, iIndex) => {
+          // Tambahkan string increment "0" jika index dari length yg di-increment sama dengan index dari array yg di-convert
+          if (+len === +iIndex && value >= 0) {
+            arr.push(ii.toString() + str.repeat(len + 1));
+          }
+        }
+        )
+      }
+      // 1. Validasi angka secara manual
+      if (arr.length === 0) alert("Input harus angka");
+    } 
+    // 5. Generate bilangan ganjil
+    else if (type === "ganjil") {
+      // Map dan pakai remainder untuk memperoleh bilangan ganjil
+      for (let i = 1; i <= value; i++) {
+        if (i % 2 !== 0 && value >= 0) {
+          arr.push(i);
+        }
+      }
+      if (arr.length === 0) alert("Input harus bilangan ganjil");
+    } 
+    // 6. Generate bilangan prima
+    else if (type === "prima") {
+      // Map dan pakai remainder untuk memperoleh bilangan prima
       for (let i = 2; i <= value; i++) {
         let primeNumber = true;
         for (let j = 2; j <= Math.sqrt(i); j++) {
@@ -26,30 +56,6 @@ function App() {
         }
       }
       if (arr.length === 0) alert("Input harus bilangan prima");
-    } else if (type === "ganjil") {
-      // map and use remainder to get odd values
-      for (let i = 1; i <= value; i++) {
-        if (i % 2 !== 0 && value >= 0) {
-          arr.push(i);
-        }
-      }
-      if (arr.length === 0) alert("Input harus bilangan ganjil");
-    } else {
-      // convert value to string and split into array
-      let i = value?.toString().split('').map(Number);
-      let str = "0";
-
-      // increment the value length
-      for (let len = 0; len <= value.length; len++) {
-        i.map((ii, iIndex) => {
-          // add the repeated string "0" if the index of incremented length is the same as index of converted array
-          if (+len === +iIndex && value >= 0) {
-            arr.push(ii.toString() + str.repeat(len + 1));
-          }
-        }
-        )
-      }
-      if (arr.length === 0) alert("Input harus angka");
     }
 
     setArrInputNumber(arr);
@@ -74,7 +80,7 @@ function App() {
           ></input>
         </div>
 
-        {/* Button to generate */}
+        {/* 2. Eksekusi button */}
         <div style={{marginTop: "0.5rem"}}>
           <button 
             onClick={(e) => {
@@ -102,7 +108,7 @@ function App() {
           </button>
         </div>
         
-        {/* Show generated numbers */}
+        {/* 3. Menampilkan hasil */}
         <div>
           {inputType && arrInputNumber.length > 0 ?
             <p style={{textTransform: "capitalize"}}>{inputType}:</p> : ""
