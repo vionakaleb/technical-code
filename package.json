@@ -1,6 +1,6 @@
 {
-  "name": "test_technical_code",
-  "homepage": "https://vionakaleb.github.io/test_technical_code",
+  "name": "technical-code",
+  "homepage": "https://vionakaleb.github.io/technical-code",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
