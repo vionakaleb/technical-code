@@ -1,7 +1,7 @@
 # Using React.js
 
 ## Live Demo
-https://vionakaleb.github.io/test_technical_code
+https://vionakaleb.github.io/technical-code
 
 #### yarn install
 
